@@ -1,0 +1,63 @@
+html {
+    margin:0;
+    padding:0;
+    vertical-align: top;
+}
+
+body {
+    font-family: sans;
+    vertical-align: top;
+}
+
+h1 {
+    font-size: 15pt;
+    margin-top: 2pt;
+}
+
+tr {
+    background-color: #DDEEFF;
+}
+
+tr.total {
+    background-color: #FFFFFF;
+}
+
+tr:not(.total):nth-child(even) {
+    background-color: #F8FFFF;
+}
+
+th {
+    text-align: left;
+    background-color: #88DDFF;
+    font-weight: normal;
+    white-space: nowrap;
+}
+
+tr:not(.total):hover:nth-child(even) {
+    background-color: #FFFFC9;
+}
+
+tr:not(.total):hover {
+    background-color: #FFFFC9;
+}
+
+td.amount {
+    text-align: right;
+}
+
+tr.total td {
+    font-weight: bold;
+    border-top: 1px black solid;
+}
+
+td.buttons {
+    background-color: #FFFFFF;
+}
+
+a {
+    color: #0011AA
+}
+
+a:visited {
+    color: #0011AA
+}
