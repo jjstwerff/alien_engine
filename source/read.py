@@ -207,7 +207,7 @@ class Scanner(object):
         """Try to resolve the previous unresolved relations"""
         for rel in self.unresolved:
             fld = rel.obj.field(rel.fldName)
-            found = fld.find(rel.obj, rel.data)
+            found = fld.find(rel.data)
             if found is None:
                 raise ValueError(
                     "Unresolved relation " + fld.related.__name__ + " " +
