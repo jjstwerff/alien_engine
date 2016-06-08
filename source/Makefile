@@ -1,7 +1,7 @@
 all:	static testing server
 
 static:
-	/usr/bin/pylint3 --rcfile ~/bin/pylintrc *.py test/*.py
+	/usr/bin/pylint3 --rcfile ../doc/pylintrc *.py test/*.py
 	pep8 *.py test/*.py
 
 testing:

@@ -1,0 +1,60 @@
+[BASIC]
+# Regular expression which should only match correct module names
+module-rgx=([a-z][a-z0-9_]*)$
+
+attr-rgx=[a-z_][a-z0-9_]{,30}
+
+# Regular expression which should only match correct class names
+class-rgx=[A-Z_]+[a-zA-Z0-9]+$
+
+# Regular expression which should only match correct function names
+function-rgx=[a-z_]+[a-z0-9_][a-z0-9]*$
+
+# Regular expression which should only match correct method names
+# Allow upper cases in testFeatureSelection where FeatureSelection
+# is a class name
+method-rgx=[a-zA-Z0-9_]*$
+
+# Regular expression which should only match correct argument names
+argument-rgx=[a-z][a-z0-9]*_*[a-z0-9]*_*[a-z0-9]*_?$
+
+# Regular expression which should only match correct variable names
+variable-rgx=([a-z_]+[a-z0-9]*_*[a-z0-9]*_*[a-z0-9]*_?||(__[a-zA-Z0-9_]*__))$||[A-Z]+
+
+# Regular expression which should only match correct module level names
+# Default: (([A-Z_][A-Z1-9_]*)|(__.*__))$
+const-rgx=([a-z_]+[a-z0-9]*_*[a-z0-9]*_*[a-z0-9]*_?|__[a-zA-Z0-9_]*__)$||[A-Z]+
+
+[DESIGN]
+
+# We are capable to follow that many, yes!
+max-branchs = 20
+
+# some base class constructors have quite a few arguments
+max-args = 14
+
+# and due to ClassWithCollections and conditional attributes classes by default have lots
+# of attributes
+max-attributes = 15
+
+# some sci computation can't be handled efficiently without having
+#lots of locals
+max-locals = 35
+
+min-public-methods = 0
+
+
+[MESSAGES CONTROL]
+# wildcard-import, unused-wildcard-import
+disable=locally-disabled,global-statement,fixme
+
+
+
+[REPORTS]
+
+# set the output format. Available formats are text, parseable, colorized and
+# html
+output-format=colorized
+
+# Tells wether to display a full report or only the messages
+reports=no
