@@ -139,9 +139,11 @@ class Item(Record):
 
     def find(self, data):
         """Find the record with the relation key"""
-        if data['name'] not in self.root().statistics:
+        key = "{:07d}".format(self.field('type').read(data['type'])) + \
+              "|" + data['name']
+        if key not in self.root().statistics:
             return None
-        return self.root().items[data['type'] + "|" + data['name']]
+        return self.root().items[key]
 
     def removable(self, general):
         """This record cannot be removed savely"""

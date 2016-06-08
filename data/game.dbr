@@ -56,8 +56,17 @@ title=Alien defence, statistics=[
   name=take cover, description=Maximize the effect of cover
   name=walk, description=Walk somewhere
 ], items=[
-  type=profession, name=crafter, values=[]
-  type=profession, name=demolition expert, values=[]
+  type=profession, name=crafter, values=[
+    statistic={type=skill, name=technician}, value=3
+  ]
+  type=profession, name=demolition expert, values=[
+    statistic={type=skill, name=athletics}, value=1
+    statistic={type=skill, name=climbing}, value=2
+    statistic={type=skill, name=demolition}, value=3
+    statistic={type=skill, name=shooting}, value=1
+    statistic={type=skill, name=technician}, value=1
+    statistic={type=skill, name=leadership}, value=1
+  ]
   type=profession, name=doctor, values=[]
   type=profession, name=grenadier, values=[]
   type=profession, name=heavy soldier, values=[]
