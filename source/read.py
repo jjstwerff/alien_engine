@@ -1,4 +1,6 @@
 """Import old style data"""
+import os
+import subprocess
 
 from tables import tables_init
 from server import Server
@@ -239,11 +241,17 @@ def main():
     """Start a server"""
     file = '../data/game.dbr'
     store = Store()
-    general = tables_init(store)
-    scan_file(file, general)
-    html_path = "../html"
-    serv = Server(general, html_path, file)
-    serv.start()
+    game = tables_init(store)
+    scan_file(file, game)
+    game.output('../data/game.new')
+    if os.system('/usr/bin/cmp -s ../data/game.dbr ../data/game.new'):
+        subprocess.Popen([
+            '/usr/bin/meld', '../data/game.dbr', '../data/game.new'])
+    else:
+        os.unlink('../data/game.new')
+        html_path = "../html"
+        serv = Server(game, html_path, file)
+        serv.start()
 
 
 if __name__ == "__main__":

@@ -8,17 +8,17 @@ from rbtree import RBDict
 # pylint: disable=no-self-use
 class Statistic(Record):
     """Statistics for persons, aliens and items"""
-    __slots__ = 'parent', 'name', 'first_train', 'second_train'
     path = 'statistics'
     fields = [
+        Enum('type', ['training', 'skill', 'statistic']),
         String('name'),
-        Enum('type', ['skill', 'statistic', 'training']),
         String('description')
     ]
-    keys = ['name']
+    keys = ['type', 'name']
 
     def __init__(self, parent):
         self.parent = parent
+        self.type = None
         self.name = None
         self.first_train = None
         self.second_train = None
@@ -34,9 +34,11 @@ class Statistic(Record):
 
     def find(self, data):
         """Find the record with the relation key"""
-        if data['name'] not in self.root().statistics:
+        key = "{:07d}".format(self.field('type').read(data['type'])) + \
+              "|" + data['name']
+        if key not in self.root().statistics:
             return None
-        return self.root().statistics[data['name']]
+        return self.root().statistics[key]
 
     def removable(self, general):
         """This record cannot be removed savely"""
@@ -45,7 +47,6 @@ class Statistic(Record):
 
 class Action(Record):
     """Actions a person can do in the game"""
-    __slots__ = 'parent', 'name', 'difficulty'
     path = 'actions'
     fields = [
         String('name'),
@@ -112,20 +113,20 @@ class Value(Record):
 class Item(Record):
     """Items and some other things in the game"""
     fields = [
-        String('name'),
         Enum('type', [
             'profession', 'armor', 'shield', 'weapon', 'gear', 'ammunition',
             'module', 'vehicle', 'trap',
             'body mod', 'weapon mod', 'armor mor', 'vehicle mod',
             'enemy', 'ufo', 'artifact']),
+        String('name'),
         Set('values', Value)
     ]
     keys = ['type', 'name']
 
     def __init__(self, parent):
         self.parent = parent
-        self.name = None
         self.type = 0
+        self.name = None
         self.values = RBDict()
 
     def store(self):
@@ -149,13 +150,12 @@ class Item(Record):
 
 class Game(Record):
     """General record with links to all other records"""
-    __slots__ = 'title', 'statistics', 'actions', 'items'
     path = ''
     fields = [
         String('title'),
         Set('statistics', Statistic),
         Set('actions', Action),
-        Set('itmes', Item)
+        Set('items', Item)
     ]
     keys = []
 
@@ -190,5 +190,5 @@ def tables_init(store):
     Statistic.fields.append(Relation('second_train', Statistic))
     store.init(game)
     store.register(
-        Statistic, Action)
+        Statistic, Action, Item, Value)
     return game

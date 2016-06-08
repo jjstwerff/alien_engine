@@ -1,58 +1,69 @@
 title=Alien defence, statistics=[
-  name=building cost, type=statistic
-  name=building time, type=statistic
-  name=length, type=statistic
-  name=width, type=statistic
-  name=height, type=statistic
-  name=science space, type=statistic
-  name=crafting space, type=statistic
-  name=storage space, type=statistic
-  name=personnel space, type=statistic
-  name=hangar length, type=statistic
-  name=hangar width, type=statistic
-  name=hangar height, type=statistic
-  name=armor, type=statistic, description=Less damage taken
-  name=cover, type=statistic, description=Amount of cover
-  name=prone, type=statistic, description=Is the person lying prone
-  name=hit points, type=statistic, description=Amount of damage before you are disabled
-  name=damage, type=statistic, description=Base damage of this weapon
-  name=skill, type=statistic, description=Extra skill given by this skill
-  name=armor damage, type=statistic, description=Damage done to armor instead of hit points
-  name=speed, type=statistic, description=Walking or vehicle speed
-  name=reach, type=statistic, description=Effective range of a hand weapon
-  name=range, type=statistic, description=Effective range\, each multiple will lower skill
-  name=effective range, type=statistic, description=Below this range it is harder to hit
-  name=area, type=statistic, description=Area that will be hit
-  name=morale, type=statistic, description=Morale of the squad member
-  name=athletics, type=skill, first_train={name=strength}, second_train={name=willpower}
-  name=heavy, type=skill, first_train={name=strength}, second_train={name=reflexes}
-  name=dodging, type=skill, first_train={name=agility}, second_train={name=reflexes}
-  name=shooting, type=skill, first_train={name=reflexes}, second_train={name=perception}
-  name=hand, type=skill, first_train={name=strength}, second_train={name=agility}
-  name=leadership, type=skill, first_train={name=willpower}, second_train={name=charm}
-  name=demolition, type=skill, first_train={name=strength}, second_train={name=willpower}
-  name=medicine, type=skill, first_train={name=willpower}, second_train={name=education}
-  name=climbing, type=skill, first_train={name=strength}, second_train={name=agility}
-  name=technician, type=skill, first_train={name=agility}, second_train={name=education}
-  name=psychology, type=skill, first_train={name=charm}, second_train={name=education}
-  name=strength, type=training
-  name=agility, type=training
-  name=reflexes, type=training
-  name=perception, type=training
-  name=willpower, type=training
-  name=charm, type=training
-  name=education, type=training
+  type=training, name=agility
+  type=training, name=charm
+  type=training, name=education
+  type=training, name=perception
+  type=training, name=reflexes
+  type=training, name=strength
+  type=training, name=willpower
+  type=skill, name=athletics, first_train={name=strength, type=training}, second_train={name=willpower, type=training}
+  type=skill, name=climbing, first_train={name=strength, type=training}, second_train={name=agility, type=training}
+  type=skill, name=demolition, first_train={name=strength, type=training}, second_train={name=willpower, type=training}
+  type=skill, name=dodging, first_train={name=agility, type=training}, second_train={name=reflexes, type=training}
+  type=skill, name=hand, first_train={name=strength, type=training}, second_train={name=agility, type=training}
+  type=skill, name=heavy, first_train={name=strength, type=training}, second_train={name=reflexes, type=training}
+  type=skill, name=leadership, first_train={name=willpower, type=training}, second_train={name=charm, type=training}
+  type=skill, name=medicine, first_train={name=willpower, type=training}, second_train={name=education, type=training}
+  type=skill, name=psychology, first_train={name=charm, type=training}, second_train={name=education, type=training}
+  type=skill, name=shooting, first_train={name=reflexes, type=training}, second_train={name=perception, type=training}
+  type=skill, name=technician, first_train={name=agility, type=training}, second_train={name=education, type=training}
+  type=statistic, name=area, description=Area that will be hit
+  type=statistic, name=armor, description=Less damage taken
+  type=statistic, name=armor damage, description=Damage done to armor instead of hit points
+  type=statistic, name=building cost
+  type=statistic, name=building time
+  type=statistic, name=cover, description=Amount of cover
+  type=statistic, name=crafting space
+  type=statistic, name=damage, description=Base damage of this weapon
+  type=statistic, name=effective range, description=Below this range it is harder to hit
+  type=statistic, name=hangar height
+  type=statistic, name=hangar length
+  type=statistic, name=hangar width
+  type=statistic, name=height
+  type=statistic, name=hit points, description=Amount of damage before you are disabled
+  type=statistic, name=length
+  type=statistic, name=morale, description=Morale of the squad member
+  type=statistic, name=personnel space
+  type=statistic, name=prone, description=Is the person lying prone
+  type=statistic, name=range, description=Effective range\, each multiple will lower skill
+  type=statistic, name=reach, description=Effective range of a hand weapon
+  type=statistic, name=science space
+  type=statistic, name=skill, description=Extra skill given by this skill
+  type=statistic, name=speed, description=Walking or vehicle speed
+  type=statistic, name=storage space
+  type=statistic, name=width
 ], actions=[
-  name=shoot, description=Shoot at someone
-  name=take cover, description=Maximize the effect of cover
-  name=guarded walk, description=Walk with readied weapons
-  name=walk, description=Walk somewhere
-  name=run, description=Run a longer stretch
-  name=dash, description=Dash quickly to another position
-  name=prone, description=Fall prone to quickly reduce damage chances
-  name=stand, description=Stand up from prone position
   name=bandage, description=Quickly treat wounds
   name=climb, description=Climb on something
-  name=rig, description=Create a trap
+  name=dash, description=Dash quickly to another position
   name=encourage, description=Try to improve group morale
+  name=guarded walk, description=Walk with readied weapons
+  name=prone, description=Fall prone to quickly reduce damage chances
+  name=rig, description=Create a trap
+  name=run, description=Run a longer stretch
+  name=shoot, description=Shoot at someone
+  name=stand, description=Stand up from prone position
+  name=take cover, description=Maximize the effect of cover
+  name=walk, description=Walk somewhere
+], items=[
+  type=profession, name=crafter, values=[]
+  type=profession, name=demolition expert, values=[]
+  type=profession, name=doctor, values=[]
+  type=profession, name=grenadier, values=[]
+  type=profession, name=heavy soldier, values=[]
+  type=profession, name=light soldier, values=[]
+  type=profession, name=medic, values=[]
+  type=profession, name=melee soldier, values=[]
+  type=profession, name=salesman, values=[]
+  type=profession, name=sergeant, values=[]
 ]
