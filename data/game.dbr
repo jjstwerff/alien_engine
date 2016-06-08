@@ -17,6 +17,7 @@ title=Alien defence, statistics=[
   type=skill, name=psychology, first_train={type=training, name=charm}, second_train={type=training, name=education}
   type=skill, name=shooting, first_train={type=training, name=reflexes}, second_train={type=training, name=perception}
   type=skill, name=technician, first_train={type=training, name=agility}, second_train={type=training, name=education}
+  type=skill, name=throwing, first_train={type=training, name=strength}, second_train={type=training, name=agility}
   type=statistic, name=area, description=Area that will be hit
   type=statistic, name=armor, description=Less damage taken
   type=statistic, name=armor damage, description=Damage done to armor instead of hit points
@@ -67,12 +68,53 @@ title=Alien defence, statistics=[
     statistic={type=skill, name=shooting}, value=1
     statistic={type=skill, name=technician}, value=1
   ]
-  type=profession, name=doctor, values=[]
-  type=profession, name=grenadier, values=[]
-  type=profession, name=heavy soldier, values=[]
-  type=profession, name=light soldier, values=[]
-  type=profession, name=medic, values=[]
-  type=profession, name=melee soldier, values=[]
-  type=profession, name=salesman, values=[]
-  type=profession, name=sergeant, values=[]
+  type=profession, name=doctor, values=[
+    statistic={type=skill, name=medicine}, value=4
+    statistic={type=skill, name=technician}, value=1
+  ]
+  type=profession, name=grenadier, values=[
+    statistic={type=skill, name=athletics}, value=2
+    statistic={type=skill, name=dodging}, value=2
+    statistic={type=skill, name=shooting}, value=1
+    statistic={type=skill, name=technician}, value=1
+    statistic={type=skill, name=throwing}, value=3
+  ]
+  type=profession, name=heavy soldier, values=[
+    statistic={type=skill, name=athletics}, value=2
+    statistic={type=skill, name=demolition}, value=1
+    statistic={type=skill, name=dodging}, value=1
+    statistic={type=skill, name=heavy}, value=4
+    statistic={type=skill, name=shooting}, value=2
+    statistic={type=skill, name=technician}, value=1
+  ]
+  type=profession, name=light soldier, values=[
+    statistic={type=skill, name=athletics}, value=1
+    statistic={type=skill, name=dodging}, value=2
+    statistic={type=skill, name=shooting}, value=4
+    statistic={type=skill, name=throwing}, value=1
+  ]
+  type=profession, name=medic, values=[
+    statistic={type=skill, name=athletics}, value=1
+    statistic={type=skill, name=dodging}, value=1
+    statistic={type=skill, name=medicine}, value=3
+    statistic={type=skill, name=shooting}, value=1
+  ]
+  type=profession, name=melee soldier, values=[
+    statistic={type=skill, name=athletics}, value=2
+    statistic={type=skill, name=dodging}, value=2
+    statistic={type=skill, name=hand}, value=4
+    statistic={type=skill, name=shooting}, value=2
+    statistic={type=skill, name=throwing}, value=1
+  ]
+  type=profession, name=salesman, values=[
+    statistic={type=skill, name=athletics}, value=1
+    statistic={type=skill, name=psychology}, value=4
+    statistic={type=skill, name=technician}, value=1
+  ]
+  type=profession, name=sergeant, values=[
+    statistic={type=skill, name=athletics}, value=2
+    statistic={type=skill, name=leadership}, value=3
+    statistic={type=skill, name=psychology}, value=1
+    statistic={type=skill, name=shooting}, value=2
+  ]
 ]
