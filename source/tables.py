@@ -34,11 +34,13 @@ class Statistic(Record):
 
     def find(self, data):
         """Find the record with the relation key"""
-        key = "{:07d}".format(self.field('type').read(data['type'])) + \
+        root = getattr(self, 'data_store').root
+        fld = getattr(self, 'field_on_name')['type']
+        key = "{:07d}".format(fld.read(data['type'])) + \
               "|" + data['name']
-        if key not in self.root().statistics:
+        if key not in root.statistics:
             return None
-        return self.root().statistics[key]
+        return root.statistics[key]
 
     def removable(self, general):
         """This record cannot be removed savely"""

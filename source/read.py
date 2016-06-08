@@ -153,12 +153,12 @@ class Scanner(object):
                     continue
                 self._expect('}', "Expect a '}' after relation data")
                 break
-            found = fld.find(rec, data)
+            found = fld.find(data)
             if found is None:
                 self.unresolved.append(
                     Unresolved(rec, fld.name, data, self.line_nr))
             else:
-                setattr(rec, fld.name, fld.find(rec, data))
+                setattr(rec, fld.name, fld.find(data))
 
     def _read_record(self, rec, indent):
         """Create a record from the new style file"""

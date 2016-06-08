@@ -2,7 +2,6 @@
 import re
 from abc import ABCMeta, abstractmethod
 from datetime import date, datetime
-from rbtree import RBDict
 
 # pylint: disable=no-self-use
 
@@ -233,9 +232,9 @@ class Relation:
             return "???"
         return data.show()
 
-    def find(self, rec, data):
+    def find(self, data):
         """Find a related record"""
-        return self.related.find(rec, data=data)
+        return self.related.find(self.related, data=data)
 
 
 class Set:
@@ -345,11 +344,16 @@ class Record(metaclass=ABCMeta):
 
     def key_repr(self):
         """Create a presentation of the key of this record"""
-        ls = RBDict()
+        ls = ['{']
         for key in getattr(self, 'keys'):
+            if len(ls) > 1:
+                ls.append(', ')
+            ls.append(key)
+            ls.append('=')
             fld = self.field(key)
-            ls[key] = fld.write(getattr(self, fld.name))
-        return str(ls)
+            ls.append(fld.write(getattr(self, fld.name)).replace(",", "\\,"))
+        ls.append('}')
+        return ''.join(ls)
 
     def __repr__(self):
         out = Output()

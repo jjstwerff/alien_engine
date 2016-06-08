@@ -6,17 +6,17 @@ title=Alien defence, statistics=[
   type=training, name=reflexes
   type=training, name=strength
   type=training, name=willpower
-  type=skill, name=athletics, first_train={name=strength, type=training}, second_train={name=willpower, type=training}
-  type=skill, name=climbing, first_train={name=strength, type=training}, second_train={name=agility, type=training}
-  type=skill, name=demolition, first_train={name=strength, type=training}, second_train={name=willpower, type=training}
-  type=skill, name=dodging, first_train={name=agility, type=training}, second_train={name=reflexes, type=training}
-  type=skill, name=hand, first_train={name=strength, type=training}, second_train={name=agility, type=training}
-  type=skill, name=heavy, first_train={name=strength, type=training}, second_train={name=reflexes, type=training}
-  type=skill, name=leadership, first_train={name=willpower, type=training}, second_train={name=charm, type=training}
-  type=skill, name=medicine, first_train={name=willpower, type=training}, second_train={name=education, type=training}
-  type=skill, name=psychology, first_train={name=charm, type=training}, second_train={name=education, type=training}
-  type=skill, name=shooting, first_train={name=reflexes, type=training}, second_train={name=perception, type=training}
-  type=skill, name=technician, first_train={name=agility, type=training}, second_train={name=education, type=training}
+  type=skill, name=athletics, first_train={type=training, name=strength}, second_train={type=training, name=willpower}
+  type=skill, name=climbing, first_train={type=training, name=strength}, second_train={type=training, name=agility}
+  type=skill, name=demolition, first_train={type=training, name=strength}, second_train={type=training, name=willpower}
+  type=skill, name=dodging, first_train={type=training, name=agility}, second_train={type=training, name=reflexes}
+  type=skill, name=hand, first_train={type=training, name=strength}, second_train={type=training, name=agility}
+  type=skill, name=heavy, first_train={type=training, name=strength}, second_train={type=training, name=reflexes}
+  type=skill, name=leadership, first_train={type=training, name=willpower}, second_train={type=training, name=charm}
+  type=skill, name=medicine, first_train={type=training, name=willpower}, second_train={type=training, name=education}
+  type=skill, name=psychology, first_train={type=training, name=charm}, second_train={type=training, name=education}
+  type=skill, name=shooting, first_train={type=training, name=reflexes}, second_train={type=training, name=perception}
+  type=skill, name=technician, first_train={type=training, name=agility}, second_train={type=training, name=education}
   type=statistic, name=area, description=Area that will be hit
   type=statistic, name=armor, description=Less damage taken
   type=statistic, name=armor damage, description=Damage done to armor instead of hit points
@@ -63,9 +63,9 @@ title=Alien defence, statistics=[
     statistic={type=skill, name=athletics}, value=1
     statistic={type=skill, name=climbing}, value=2
     statistic={type=skill, name=demolition}, value=3
+    statistic={type=skill, name=leadership}, value=1
     statistic={type=skill, name=shooting}, value=1
     statistic={type=skill, name=technician}, value=1
-    statistic={type=skill, name=leadership}, value=1
   ]
   type=profession, name=doctor, values=[]
   type=profession, name=grenadier, values=[]
