@@ -14,11 +14,11 @@ The specific versions in use are:
 
 start the engine with:
 
-  cd sources
+  cd source
   make server
 
 
 start all the code validation and then the engine with:
 
-  cd sources
+  cd source
   make
