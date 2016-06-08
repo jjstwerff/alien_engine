@@ -237,11 +237,11 @@ def reading(string):
 
 def main():
     """Start a server"""
-    file = '../2015/finance.dbr'
+    file = '../data/game.dbr'
     store = Store()
     general = tables_init(store)
     scan_file(file, general)
-    html_path = "../2015/html"
+    html_path = "../html"
     serv = Server(general, html_path, file)
     serv.start()
 

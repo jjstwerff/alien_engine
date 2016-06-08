@@ -24,17 +24,17 @@ title=Alien defence, statistics=[
   name=effective range, type=statistic, description=Below this range it is harder to hit
   name=area, type=statistic, description=Area that will be hit
   name=morale, type=statistic, description=Morale of the squad member
-  name=athletics, type=skill, first_train=strength, second_train=willpower
-  name=heavy, type=skill, first_train=strength, second_train=reflexes
-  name=dodging, type=skill, first_train=agility, second_train=reflexes
-  name=shooting, type=skill, first_train=reflexes, second_train=perception
-  name=hand, type=skill, first_train=strength, second_train=agility
-  name=leadership, type=skill, first_train=willpower, second_train=charm
-  name=demolition, type=skill, first_train=strength, second_train=willpower
-  name=medicine, type=skill, first_train=willpower, second_train=education
-  name=climbing, type=skill, first_train=strength, second_train=agility
-  name=technician, type=skill, first_train=agility, second_train=education
-  name=psychology, type=skill, first_train=charm, second_train=education
+  name=athletics, type=skill, first_train={name=strength}, second_train={name=willpower}
+  name=heavy, type=skill, first_train={name=strength}, second_train={name=reflexes}
+  name=dodging, type=skill, first_train={name=agility}, second_train={name=reflexes}
+  name=shooting, type=skill, first_train={name=reflexes}, second_train={name=perception}
+  name=hand, type=skill, first_train={name=strength}, second_train={name=agility}
+  name=leadership, type=skill, first_train={name=willpower}, second_train={name=charm}
+  name=demolition, type=skill, first_train={name=strength}, second_train={name=willpower}
+  name=medicine, type=skill, first_train={name=willpower}, second_train={name=education}
+  name=climbing, type=skill, first_train={name=strength}, second_train={name=agility}
+  name=technician, type=skill, first_train={name=agility}, second_train={name=education}
+  name=psychology, type=skill, first_train={name=charm}, second_train={name=education}
   name=strength, type=training
   name=agility, type=training
   name=reflexes, type=training

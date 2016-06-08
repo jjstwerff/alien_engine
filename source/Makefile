@@ -1,4 +1,4 @@
-all:	static testing clean
+all:	static testing server
 
 static:
 	/usr/bin/pylint3 --rcfile ~/bin/pylintrc *.py test/*.py
@@ -6,6 +6,9 @@ static:
 
 testing:
 	nosetests3 --nocapture
+
+server:
+	python3 read.py
 
 clean:
 	rm coverage .coverage __pycache__ test/*.result -rf

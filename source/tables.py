@@ -89,6 +89,25 @@ class Value(Record):
         self.statistic = None
         self.value = 0
 
+    def store(self):
+        """Store the Automatic"""
+        self.parent.values[self.get_id()] = self
+
+    def remove(self):
+        """Remove the Automatic from the index"""
+        del self.parent.values[self.get_id()]
+
+    def find(self, data):
+        """Find the record with the relation key"""
+        if data['name'] not in self.root().statistics:
+            return None
+        item = self.root().items[data['type'] + "|" + data['name']]
+        return item.values[data['statistic']]
+
+    def removable(self, general):
+        """This record cannot be removed savely"""
+        return None
+
 
 class Item(Record):
     """Items and some other things in the game"""
@@ -105,6 +124,27 @@ class Item(Record):
 
     def __init__(self, parent):
         self.parent = parent
+        self.name = None
+        self.type = 0
+        self.values = RBDict()
+
+    def store(self):
+        """Store the Automatic"""
+        self.parent.items[self.get_id()] = self
+
+    def remove(self):
+        """Remove the Automatic from the index"""
+        del self.parent.items[self.get_id()]
+
+    def find(self, data):
+        """Find the record with the relation key"""
+        if data['name'] not in self.root().statistics:
+            return None
+        return self.root().items[data['type'] + "|" + data['name']]
+
+    def removable(self, general):
+        """This record cannot be removed savely"""
+        return {"statistic": None}
 
 
 class Game(Record):
@@ -146,8 +186,8 @@ class Game(Record):
 def tables_init(store):
     """Add some fields that are forward definitions"""
     game = Game(store)
-    Statistic.fields.append(Relation('first_stat', Statistic))
-    Statistic.fields.append(Relation('second_stat', Statistic))
+    Statistic.fields.append(Relation('first_train', Statistic))
+    Statistic.fields.append(Relation('second_train', Statistic))
     store.init(game)
     store.register(
         Statistic, Action)
